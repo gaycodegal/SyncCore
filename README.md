@@ -9,7 +9,7 @@ Essentially, it will seek to break applications down into:
 
 
 - Handler : functions built specifically to handle events, data manipulation, or other useful things like data management. Handlers will be purely funcitonal (stateless).
-- Datagrams : The *information* structures that will represent the information an application. Datagrams are *typed* and will automatically be *syncable* to a server or stored locally for offline functionality. Datagrams may inherit from other datagrams and may have associated handlers to allow for its manipulation.
+- [Datagrams][1] : The *information* structures that will represent the information an application. Datagrams are *typed* and will automatically be *syncable* to a server or stored locally for offline functionality. Datagrams may inherit from other datagrams and may have associated handlers to allow for its manipulation.
 - Templates : A union of display elements (templates) and optionally one or more datagrams and handlers in order to provide static or dynamic interfaces. Templates can be something as simple as an input, or be a union of other templates used to represent an entire page. Templates will be interchangable and updatable to provide live page modification as well as to provide all the speed and power of a one-page app.
 
 Together these structures are able to fully describe all the features of an application. Built in features of SyncCore will manage data and client/server interaction.
@@ -27,7 +27,7 @@ Handler:
         user.sync();
     });
 
-Datagram:
+[Datagram][1]:
 
     Datagram('User', {
         name: "string,sync", 
@@ -46,3 +46,4 @@ Template:
         <div click="user.increment_age">user.age</div>
     </Template>
 
+[1]: ./Datagram.md
