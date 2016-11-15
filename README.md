@@ -8,9 +8,9 @@ SyncCore is an in-progress UI-builder and data management scheme which will be u
 Essentially, it will seek to break applications down into:
 
 
-- Handler : functions built specifically to handle events, data manipulation, or other useful things like data management. Handlers will be purely funcitonal (stateless).
+- [Handlers][3] : functions built specifically to handle events, data manipulation, or other useful things like data management. Handlers will be purely funcitonal (stateless).
 - [Datagrams][1] : The *information* structures that will represent the information an application. Datagrams are *typed* and will automatically be *syncable* to a server or stored locally for offline functionality. Datagrams may inherit from other datagrams and may have associated handlers to allow for its manipulation.
-- Templates : A union of display elements (templates) and optionally one or more datagrams and handlers in order to provide static or dynamic interfaces. Templates can be something as simple as an input, or be a union of other templates used to represent an entire page. Templates will be interchangable and updatable to provide live page modification as well as to provide all the speed and power of a one-page app.
+- [Templates][2] : A union of display elements (templates) and optionally one or more datagrams and handlers in order to provide static or dynamic interfaces. Templates can be something as simple as an input, or be a union of other templates used to represent an entire page. Templates will be interchangable and updatable to provide live page modification as well as to provide all the speed and power of a one-page app.
 
 Together these structures are able to fully describe all the features of an application. Built in features of SyncCore will manage data and client/server interaction.
 
@@ -20,9 +20,9 @@ SyncCore will offer a template creator to make creating xml template description
 
 This project be uploaded with prototypes when they are deemed worthy. However, here's an example Datagram, Template, and Handler.
 
-Handler:
+[Handler][3]:
 
-    Handler('User.increment_age', function (user){
+    Handler('User.increment_age', 'User:user', function (user){
         user.age += 1;
         user.sync();
     });
@@ -36,7 +36,7 @@ Handler:
         increment_age: "handler"
     });
 
-Template:
+[Template][2]:
 
     <Template name="UserProfile" data="User:user">
         <div>"User Info:"</div>
@@ -47,3 +47,5 @@ Template:
     </Template>
 
 [1]: ./Datagram.md
+[2]: ./Template.md
+[3]: ./Handlers.md

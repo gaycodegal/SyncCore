@@ -1,4 +1,4 @@
-# Datagram Specification
+# Datagram Specification ([To Main Document](./README.md))
 
 Datagrams are meant to provide information on typing, inheritance, syncing, data structure. Datagrams were separated from their handlers in order to ensure susinctness.
 
@@ -12,6 +12,8 @@ Datagrams should:
 - provide default serialization when possible.
   - if a datagram is to represent a new datatype, it must present it's own serialization method.
   - if a datagram requires its own unique serialization method, its only purpose should be to serve as a datatype.
+
+There will be various already provided datagrams that have specific purposes, for instance a style datagram that will manage an updatable style.
 
 The datagram constructor:
 
