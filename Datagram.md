@@ -19,29 +19,43 @@ Datagrams should:
 
 There will be various already provided datagrams that have specific purposes, for instance a style datagram that will manage an updatable style.
 
-The datagram constructor:
+Interfaces will not strictly be interfaces, but will allow multiple inheritance. The first interface will be considered a datagram's direct parent, and will be accessible through `super()`, all other interfaces will be accessible through `interfaces()`. The superclass will represent the first element of `interfaces()`. Interfaces should be initialized in order, which permits the overwriting of the fields of lower indexed datagrams.
 
-`Datagram(Name, [Interface List], [Properties Object])`
+Datagrams supporting inheritance must provide their own constructor as an input to the `Datagram(...)` method.
+
+The datagram constructor:
+    
+`Datagram(Name, Field List, Synced Field List, Interface List, Constructor, Context)`
+- Name: string in dotted namespace format.
+- Interface List: a list of names to inherit from.
+- Field List: a list of name:instance_name pairs.
+- Synced Field List: a field list of attributes to be synced.
+- Constructor: Handler for initialization of fields, documentation to be provided. 
+    Name.constructor will be assumed as a default value. 
+    The constructor must already exist.
+  - Examples to come.
+- Context: every name provided will be considered part of this namespace. 
+- Defaults to the window  context
 
 Example:
 
     //Without inheritance:
-    Datagram('User', {
-        name: "string,sync", 
-        bio: "string,sync", 
-        age: "int,sync"
-    });
+    Datagram('User', [
+        "string:name",
+        "string:bio",
+        "int:age"
+    ]);
     
-    //With direct inheritance:
-    Datagram('Customer>User', {
-        name: "string,sync", 
-        bio: "string,sync", 
-        age: "int,sync"
-    });
+    //With inheritance, singular:
+    Datagram('User', [
+        "string:name",
+        "string:bio",
+        "int:age"
+    ],[],["Client"], "User.constructor");
     
-    //With interface inheritance:
-    Datagram('User', ["Person", "Client"], {
-        name: "string,sync", 
-        bio: "string,sync", 
-        age: "int,sync"
-    });
+    //With inheritance, multiple:
+    Datagram('User', [
+        "string:name",
+        "string:bio",
+        "int:age"
+    ],[],["Client", "Person"], "User.constructor");

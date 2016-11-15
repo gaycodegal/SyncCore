@@ -32,11 +32,11 @@ An example Handler, Datagram, and Template.
 [Datagram][1]:
 
     //inherits increment_age as a member function
-    Datagram('User', {
-        name: "string,sync", 
-        bio: "string,sync", 
-        age: "int,sync"
-    });
+    Datagram('User', [
+        "string:name",
+        "string:bio",
+        "int:age"
+    ]);
 
 [Template][2]:
 
