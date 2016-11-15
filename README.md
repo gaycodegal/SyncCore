@@ -1,6 +1,8 @@
 # SyncCore
 - A one-page library combined with UI and data control.
 
+SyncCore will provide two modes: development and production. Development code will be easy to write, but will take a small amount internally for linking to occur. Development code will not require compiling as this would slow down the development process. Production code will be produced by development code and will more closely resemble "regular" JavaScript.
+
 Currently this is just a specification and goals document. All code in the project is purely speculative and subject to change.
 
 SyncCore is an in-progress UI-builder and data management scheme which will be used in future versions of LiquiZ to reduce complexity. It is a well known fact that creating a display, back-end server, and front end functionality can quickly bog down any project, and greatly reducing productivity. SyncCore will prodive an approach to this issue by creating tools and a structured approach to these issues. In addition, it will provide the speed and power of a one-page approach, ensuring faster page loading and product response time.
