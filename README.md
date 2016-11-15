@@ -1,7 +1,7 @@
 # SyncCore
 - A one-page library combined with UI and data control.
 
-Currently this is just a specification and goals document. Code will be uploaded as the project matures.
+Currently this is just a specification and goals document. All code in the project is purely speculative and subject to change.
 
 SyncCore is an in-progress UI-builder and data management scheme which will be used in future versions of LiquiZ to reduce complexity. It is a well known fact that creating a display, back-end server, and front end functionality can quickly bog down any project, and greatly reducing productivity. SyncCore will prodive an approach to this issue by creating tools and a structured approach to these issues. In addition, it will provide the speed and power of a one-page approach, ensuring faster page loading and product response time.
 
@@ -18,22 +18,22 @@ This leaves the structure of SyncCore - how will developing an application in Sy
 
 SyncCore will offer a template creator to make creating xml template descriptions, along with the related bindings of handlers and datagrams quick and easy. Alongside the native JavaScript functionality, SyncCore will also provide a fully navigable object oriented description of datagrams, allowing you to easily export them to classes in other langauages if you don't want to use SyncCore's serverside capabilities.
 
-This project be uploaded with prototypes when they are deemed worthy. However, here's an example Datagram, Template, and Handler.
+An example Handler, Datagram, and Template.
 
 [Handler][3]:
 
-    Handler('User.increment_age', 'User:user', function (user){
-        user.age += 1;
-        user.sync();
+    Handler('User.increment_age', function (){
+        this.age += 1;
+        this.sync();
     });
 
 [Datagram][1]:
 
+    //inherits increment_age as a member function
     Datagram('User', {
         name: "string,sync", 
         bio: "string,sync", 
-        age: "int,sync", 
-        increment_age: "handler"
+        age: "int,sync"
     });
 
 [Template][2]:

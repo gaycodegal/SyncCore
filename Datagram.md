@@ -11,6 +11,8 @@ Datagrams should:
 - provide both interface and direct inheritance.
 - acknowledge private and public fields, although this will simply be done via double underscores for simplicity: `__field`
 - provide default constructors
+- inherit handlers in its namespace as member functions
+  - accept new handlers created its namespace in the same way
 - provide default serialization when possible.
   - if a datagram is to represent a new datatype, it must present it's own serialization method.
   - if a datagram requires its own unique serialization method, its only purpose should be to serve as a datatype.
@@ -27,22 +29,19 @@ Example:
     Datagram('User', {
         name: "string,sync", 
         bio: "string,sync", 
-        age: "int,sync", 
-        increment_age: "handler"
+        age: "int,sync"
     });
     
     //With direct inheritance:
     Datagram('Customer>User', {
         name: "string,sync", 
         bio: "string,sync", 
-        age: "int,sync", 
-        increment_age: "handler"
+        age: "int,sync"
     });
     
     //With interface inheritance:
     Datagram('User', ["Person", "Client"], {
         name: "string,sync", 
         bio: "string,sync", 
-        age: "int,sync", 
-        increment_age: "handler"
+        age: "int,sync"
     });
