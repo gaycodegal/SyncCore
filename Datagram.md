@@ -1,4 +1,6 @@
-# Datagram Specification ([To Main Document](./README.md))
+# Datagram Specification 
+
+([To Main Document](./README.md))
 
 Datagrams are meant to provide information on typing, inheritance, syncing, data structure. Datagrams were separated from their handlers in order to ensure susinctness.
 

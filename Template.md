@@ -1,4 +1,6 @@
-# Template Specification ([To Main Document](./README.md))
+# Template Specification 
+
+([To Main Document](./README.md))
 
 Templates are meant to provide information about display composition, and derive their styling information and contents from either static values or datagrams.
 
