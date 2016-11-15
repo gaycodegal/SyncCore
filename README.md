@@ -1,5 +1,5 @@
 # SyncCore
-- A One-Page library combined with UI and data control.
+- A one-page library combined with UI and data control.
 
 Currently this is just a specification and goals document. Code will be uploaded as the project matures.
 
